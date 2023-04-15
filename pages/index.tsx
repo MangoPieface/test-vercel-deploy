@@ -5,7 +5,7 @@ import { GetServerSideProps } from 'next';
 const inter = Inter({ subsets: ['latin'] })
 
 export const getServerSideProps : GetServerSideProps = async () => {
-  const request = await fetch('http://localhost:3000/api/hello')
+  const request = await fetch('https://test-vercel-deploy-eta.vercel.app/api/hello')
   const products = await request.json(); 
   console.log(products);
   return {
