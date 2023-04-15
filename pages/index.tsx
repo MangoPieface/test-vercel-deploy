@@ -1,7 +1,19 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { GetServerSideProps } from 'next';
 
 const inter = Inter({ subsets: ['latin'] })
+
+export const getServerSideProps : GetServerSideProps = async () => {
+  const request = await fetch('http://localhost:3000/api/hello')
+  const products = await request.json(); 
+  console.log(products);
+  return {
+    props: {
+      products,
+    },
+  };
+};
 
 export default function Home() {
   return (
